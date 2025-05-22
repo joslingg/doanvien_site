@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thêm đoàn viên</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <h2 class="mb-4">➕ Thêm Đoàn viên</h2>
+    
+    <form method="POST" class="mb-4">
+        {% csrf_token %}
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_name" class="form-label">Họ tên</label>
+                {{ form.name }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_gender" class="form-label">Giới tính</label>
+                {{ form.gender }}
+            </div>
+        </div>
+    
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_department" class="form-label">Khoa/Phòng</label>
+                {{ form.department }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_group" class="form-label">Tổ công đoàn</label>
+                {{ form.group }}
+            </div>
+        </div>
+    
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="id_status" class="form-label">Tình trạng</label>
+                {{ form.status }}
+            </div>
+            <div class="col-md-6">
+                <label for="id_note" class="form-label">Ghi chú</label>
+                {{ form.note }}
+            </div>
+        </div>
+    
+        <div class="text-start mt-3">
+            <button class="btn btn-primary" type="submit">Lưu đoàn viên</button>
+        </div>
+    </form>    
+</div>
+</body>
+</html>
