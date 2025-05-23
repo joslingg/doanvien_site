@@ -7,6 +7,7 @@ from django.db.models import Count
 import openpyxl
 from openpyxl.styles import Font
 import pandas as pd
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return HttpResponse("<h2>Chào bạn đến với hệ thống quản lý Đoàn viên!</h2>")
@@ -21,6 +22,7 @@ def add_member(request):
          form = MemberForm()
     return render(request, 'doanvien/add_member.html',{'form':form})
 
+@login_required
 def member_list(request):
     search = request.GET.get('q','')
     department_filter = request.GET.get('department','')

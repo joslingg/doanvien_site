@@ -17,8 +17,11 @@ Including another URLconf
 # doanvien_site/urls.py 
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/',admin.site.urls),
     path('',include('doanvien.urls')),
+    path('dang-nhap/', auth_views.LoginView.as_view(), name='login'),
+    path('dang-xuat/', auth_views.LogoutView.as_view(), name='logout'),
 ]
