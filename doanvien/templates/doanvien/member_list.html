@@ -55,9 +55,10 @@
                 <h2>📋 Danh sách Đoàn viên</h2>
                 <div class="d-flex gap-2">
                     <a href="{% url 'add-member' %}" class="btn btn-primary">Thêm Đoàn viên</a>
-                    <a href="{% url 'import-members' %}" class="btn btn-info">⬆️ Import</a>
-                    <a href="{% url 'export-member-list' %}" class="btn btn-success">⬇️ Xuất Excel</a>
-                    <a href="{% url 'member-stats' %}" class="btn btn-secondary">📊 Thống kê</a>
+                    <a href="{% url 'import-members' %}" class="btn btn-outline-info">⬆️ Import</a>
+                    <a href="{% url 'export-member-list' %}" class="btn btn-outline-success">⬇️ Xuất Excel</a>
+                    <a href="{% url 'member-stats' %}" class="btn btn-outline-secondary">📊 Thống kê</a>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger">🚪 Đăng xuất</a>
                 </div>
             </div>
 
@@ -70,8 +71,8 @@
                         <select name="department" class="form-select">
                             <option value="">--- Chọn Khoa/Phòng ---</option>
                             {% for dept in departments %}
-                            <option value="{{ dept.id }}" {% if dept.id|stringformat:"s" == selected_department %}selected{% endif %}>
-                                {{ dept.name }}
+                            <option value="{{ dept.id }}" {% if request.GET.department == dept.id|stringformat:"s" %}selected{% endif %}>
+                                {{ dept.name }} 
                             </option>
                             {% endfor %}
                         </select>
